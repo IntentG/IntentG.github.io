@@ -20,7 +20,7 @@ const strings={
 function show(s){last=s;el('status').textContent=strings[s][en?1:0];}
 function render(){document.documentElement.lang=en?'en':'ru';for(const n of document.querySelectorAll('[data-i]'))n.textContent=strings[n.dataset.i][en?1:0];el('language').textContent=en?'Русский':'English';show(last);}
 function controls(){el('erase').disabled=busy||!ready||!el('agree').checked;el('cancel').disabled=busy;el('resume').disabled=busy;el('confirmation').hidden=!ready;try{el('resume').hidden=!client.pending();}catch{show('error');}}
-async function run(action){if(busy)return;busy=true;show('working');controls();try{await action();}catch{ready=false;show('error');}finally{busy=false;controls();}}
+async function run(action){if(busy)return;busy=true;show('working');controls();try{await action();}catch(e){ready=false;show('error');const safe=/^(HTTP_\d{3}|IDENTITY_MISMATCH|SUPPORT_REQUIRED|OTHER_PENDING_ACCOUNT|FRESH_CONFIRMATION_REQUIRED|INVALID_RECEIPT|RECEIPT_MISMATCH|STORAGE_REQUIRED)$/.test(e.message)?e.message:'NETWORK_OR_BROWSER';el('status').textContent+=' ['+safe+']';}finally{busy=false;controls();}}
 el('language').onclick=()=>{en=!en;render();};el('agree').onchange=controls;
 el('cancel').onclick=()=>{client.signOut();ready=false;el('agree').checked=false;show('cancelled');controls();};
 el('erase').onclick=()=>run(async()=>{if(!el('agree').checked||!ready)return;const s=await client.remove('DELETE_RIVENSHIFTERS_GAME_ACCOUNT');ready=false;show(s);});
