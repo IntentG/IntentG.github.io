@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer"><meta name="robots" content="noindex">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://accounts.google.com/gsi/client; style-src 'self' https://accounts.google.com/gsi/style; frame-src https://accounts.google.com; connect-src https://accounts.google.com/gsi/ https://player-auth.services.api.unity.com https://cloud-code.services.api.unity.com; img-src 'self' https://*.googleusercontent.com data:; base-uri 'none'; form-action 'none'; object-src 'none'">
+<title>RivenShifters — Google account deletion</title><link rel="stylesheet" href="google-delete.css">
+<script src="https://accounts.google.com/gsi/client" async defer></script><script type="module" src="google-delete.mjs"></script></head>
+<body><main><button id="language" type="button">English</button><p>RIVENSHIFTERS · INTENTGAMES</p>
+<h1 data-i="title">Удаление игрового аккаунта через Google</h1>
+<p data-i="intro">Устанавливать игру и подтверждать почту письмом не нужно. Войдите тем же Google-аккаунтом, который использовали в игре. Вход сам по себе ничего не удаляет.</p>
+<div id="google" aria-label="Sign in with Google"></div>
+<p id="status" role="status" aria-live="polite"></p>
+<section id="confirmation" hidden><h2 data-i="confirmTitle">Проверьте действие</h2><p data-i="warning">Будут удалены игровой профиль RivenShifters, прогресс, инвентарь и связанные данные. Ваш Google-аккаунт останется. Удаление необратимо. Минимальная служебная запись хранится 365 дней согласно политике конфиденциальности.</p>
+<label><input id="agree" type="checkbox"><span data-i="agree">Подтверждаю удаление моего игрового аккаунта и прогресса.</span></label>
+<p><button id="erase" type="button" disabled data-i="erase">Удалить игровой аккаунт</button> <button id="cancel" type="button" data-i="cancel">Отмена</button></p></section>
+<button id="resume" type="button" hidden data-i="resume">Продолжить ранее подтверждённое удаление</button>
+<p data-i="recovery">После подтверждения этот браузер сохраняет только защищённый код продолжения удаления, чтобы завершить операцию при обрыве связи. Не очищайте данные сайта до завершения. Пароли и токены входа на диск не записываются.</p>
+<p><a href="delete-account.html" data-i="support">Другой способ входа или нужна помощь — обратиться в поддержку</a></p><p><a href="index.html" data-i="privacy">Конфиденциальность и сроки хранения</a></p>
+</main></body></html>
