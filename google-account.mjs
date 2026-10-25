@@ -38,8 +38,8 @@ export function createClient({transport=fetch,store=localStorage,random=crypto}=
   signOut(){access=null;owner=null;freshUntil=0;},
   async signIn(credential){
    access=null;owner=null;freshUntil=0;
-   const r=await request(AUTH+'authentication/external-token/google',{idProvider:'google',token:credential,signInOnly:true});
-   if(!r.idToken||r.userId!==r.user?.id||!r.user.externalIds?.some(x=>x.providerId==='google'&&x.externalId))throw Error('IDENTITY_MISMATCH');
+   const r=await request(AUTH+'authentication/external-token/google.com',{idProvider:'google.com',token:credential,signInOnly:true});
+   if(!r.idToken||r.userId!==r.user?.id||!r.user.externalIds?.some(x=>x.providerId==='google.com'&&x.externalId))throw Error('IDENTITY_MISMATCH');
    access=r.idToken;owner=r.userId;freshUntil=Date.now()+300000;
    const existing=pending();if(existing&&existing.owner!==owner){this.signOut();throw Error('OTHER_PENDING_ACCOUNT');}
    const result=await call({operation:'inspect'});
