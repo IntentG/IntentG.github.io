@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /google-delete.html
+Disallow: /delete-account.html
