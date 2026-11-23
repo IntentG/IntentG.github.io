@@ -1,5 +1,6 @@
 # Authorized sellers: Unity Ads dashboard and official ironSource list, 2026-10-11
 OWNERDOMAIN=rivenshifters.com
+google.com, pub-8724843042413438, DIRECT, f08c47fec0942fa0
 ironsrc.com, 690275, DIRECT
 adwmg.com, 159512, RESELLER, c9688a22012618e7
 appads.in, 106246, RESELLER
